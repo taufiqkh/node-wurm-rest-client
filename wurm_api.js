@@ -7,7 +7,7 @@ const rest = require('rest');
 const mime = require('rest/interceptor/mime');
 const pathPrefix = require('rest/interceptor/pathPrefix');
 
-const DEFAULT_HOST = "localhost";
+const DEFAULT_HOST = 'localhost';
 const DEFAULT_PORT = 80;
 
 const HTTP_OK = 200;
@@ -76,11 +76,12 @@ module.exports = (customOptions) => {
   let options = Object.assign({host: DEFAULT_HOST, port: DEFAULT_PORT}, customOptions);
   let baseUrl = 'http://' +
     options.host +
-    options.port == 80 ? "" : ":" + options.port +
+    (options.port == 80 ? "" : ":" + options.port) +
     '/';
+  console.log('Wurm client created, API expected at URL ' + baseUrl);
   let client = rest
     .wrap(mime, {mime: 'application/json', accept: 'application/json'})
-    .wrap(pathPrefix, baseUrl);
+    .wrap(pathPrefix, {prefix: baseUrl});
   const apiGet = function apiGet(path) {
     return client({path: path}).catch(
       composeErr('Unable to contact API provider at ' + baseUrl + path)
@@ -94,7 +95,7 @@ module.exports = (customOptions) => {
      * Checks whether or not the game server is currently running.
      */
     getStatus() {
-      return apiGet('/server/status')
+      return apiGet('server/status')
         .then(validateResponse.bind(this, 'getStatus'))
         .catch(function onGetStatusError(err) {
           let message = "Status check error, problem with response";
