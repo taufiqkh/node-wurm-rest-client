@@ -1,0 +1,23 @@
+{
+  "name": "wurm-rest-client",
+  "version": "1.0.0",
+  "description": "Client for the Wurm REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taufiqkh/node-wurm-rest-client.git"
+  },
+  "keywords": [
+    "wurm",
+    "client"
+  ],
+  "author": "Taufiq Hoven",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/taufiqkh/node-wurm-rest-client/issues"
+  },
+  "homepage": "https://github.com/taufiqkh/node-wurm-rest-client#readme"
+}
