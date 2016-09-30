@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/taufiqkh/node-wurm-rest-client/issues"
   },
-  "homepage": "https://github.com/taufiqkh/node-wurm-rest-client#readme"
+  "homepage": "https://github.com/taufiqkh/node-wurm-rest-client#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.0",
+    "sinon": "^1.17.6"
+  },
+  "dependencies": {
+    "rest": "^2.0.0"
+  }
 }
